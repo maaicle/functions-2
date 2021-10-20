@@ -6,14 +6,14 @@
 */
 
 // CODE HERE
-
+const multiply = (num1, num2, callback) => callback(num1 * num2);
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
 // multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
+  // console.log('The answer is ' + answer) //should console.log 12
 // })
 
 
@@ -36,7 +36,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+const first = (array, callBack) => callBack(array[0])
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -56,7 +56,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+const last = (arr, callback) => callback(arr[arr.length-1]);
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -78,7 +78,13 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+const contains = (array, name, callback) => {
+  if (array.includes(name)) {
+    callback(true)
+  } else {
+    callback(false)
+  }
+}
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
@@ -103,6 +109,19 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+const uniq = (array, callback) => {
+  for (i = 0; i < array.length; i++) {
+    for (j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j]) {
+        array.splice(i, 1);
+      };
+    };
+  };
+  callback(array);
+};
+
+let uniq2 = (uniqArr) => console.log(`The new names array with all duplicate items removed is ${uniqArr}`);
+
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -112,8 +131,7 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
-
+uniq(names, uniq2);
 
 ////////// PROBLEM 6 //////////
 
@@ -123,7 +141,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
+const each = (array, callback) => {
+  array.forEach(function(element, index) {
+    callback(element, index)
+  })
+};
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -133,7 +155,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+each(names, (item, index) => {
+  console.log(`The item at index ${index} is ${item}`)
+});
 
 ////////// PROBLEM 7 //////////
 
