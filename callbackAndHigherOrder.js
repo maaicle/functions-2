@@ -131,7 +131,7 @@ let uniq2 = (uniqArr) => console.log(`The new names array with all duplicate ite
 */
 
 // CODE HERE
-uniq(names, uniq2);
+// uniq(names, uniq2);
 
 ////////// PROBLEM 6 //////////
 
@@ -155,14 +155,15 @@ const each = (array, callback) => {
 */
 
 // CODE HERE
-each(names, (item, index) => {
-  console.log(`The item at index ${index} is ${item}`)
-});
+// each(names, (item, index) => {
+//   console.log(`The item at index ${index} is ${item}`)
+// });
 
 ////////// PROBLEM 7 //////////
 
 /*
-  Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
+  Write a function called getUserById that takes in three parameters: an array of objects (users), 
+  an id and a callback, and searches for the user with a matching id.
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
@@ -189,16 +190,29 @@ var users = [
 ]
 // Do not edit the code above.
 
-// CODE HERE 
+// const testUser = users.filter(function(element){
+//   return element.id === '16t';
+// });
 
+// console.log(testUser);
+
+// CODE HERE 
+const getUserById = (users, referenceId, callback) => {
+  const filteredUser = users.filter(function(element) {
+    return element.id === referenceId;
+  })
+  callback(filteredUser[0]);
+}
+
+// console.log(getUserById(users, '16t'))
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+getUserById(users, '16t', user => {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+})
 
 ////////// CHALLENGE //////////
 
@@ -217,6 +231,8 @@ var users = [
 */
 
 // CODE HERE
+
+
 
 /*
   Now that you have addingFactory, you can create other
